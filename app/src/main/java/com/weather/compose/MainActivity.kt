@@ -7,8 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import com.weather.compose.View.WeatherCard
-import com.weather.compose.ui.theme.WeatherAppJetPackComposeTheme
+import com.weather.compose.view.WeatherCard
 
 @Composable
 fun WeatherAppTheme(content: @Composable () -> Unit) {
