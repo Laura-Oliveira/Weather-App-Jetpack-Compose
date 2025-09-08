@@ -61,14 +61,18 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
   //  implementation(platform("androidx.compose:compose-bom:2024.05.00"))
 
-    implementation("androidx.activity:activity-compose:1.7.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-    implementation("androidx.compose.material3:material3:1.1.0")
-    implementation("androidx.activity:activity-ktx:1.7.2")
+// Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.androidx.activity.compose.v172)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.material3)
+    implementation(libs.androidx.activity.ktx)
 
 }

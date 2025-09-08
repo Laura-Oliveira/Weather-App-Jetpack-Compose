@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,8 +32,12 @@ fun WeatherCard(
     val title = "Weather Today"
 
     //Dados provenientes ViewModel
-    var cityName = weatherViewModel.cityName.collectAsState().value
-    var temperature = weatherViewModel.temperature.collectAsState().value
+    val cityName = weatherViewModel.cityName.collectAsState().value
+    val temperature = weatherViewModel.temperature.collectAsState().value
+
+    LaunchedEffect(Unit) {
+        weatherViewModel.loadWeather(cityName, "1a03ac2ebe3574faa807d45a045c57ab")
+    }
 
     Surface {
         Column(
@@ -76,7 +81,7 @@ fun WeatherCard(
                         color = Color.Blue
                     )
                     Text(
-                        text = "$temperature ºC",
+                        text = "${temperature ?: 0.0} ºC",
                         color = Color.DarkGray
                     )
                 }//Column
