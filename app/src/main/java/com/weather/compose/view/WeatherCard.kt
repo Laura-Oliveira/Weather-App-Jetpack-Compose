@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,57 +37,108 @@ fun WeatherCard(
     val cityName = weatherViewModel.cityName.collectAsState().value
     val temperature = weatherViewModel.temperature.collectAsState().value
 
+//    var listCities:List<String> = { "Amsterdam, Barcelona, Lison"} as List<String>
+
+ //   weatherViewModel.loadWeatherForCities(listCities, "1a03ac2ebe3574faa807d45a045c57ab")
+
+//    LaunchedEffect(Unit) {
+//        weatherViewModel.loadWeather(cityName, "1a03ac2ebe3574faa807d45a045c57ab")
+//    }
+
+    val cityWeather = weatherViewModel.citiesWeather.collectAsState().value
+
+    // Buscar dados quando a tela abrir
     LaunchedEffect(Unit) {
-        weatherViewModel.loadWeather(cityName, "1a03ac2ebe3574faa807d45a045c57ab")
+        weatherViewModel.loadWeatherForCities(
+            listOf("Amsterdam", "Barcelona", "Lisbon"),
+            "1a03ac2ebe3574faa807d45a045c57ab"
+        )
     }
 
     Surface {
-        Column(
-            modifier = Modifier
-                .padding(10.dp),
-            verticalArrangement = Arrangement.SpaceAround
-        ) {
-            //Title
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    text = "$title",
-                    color = Color.Blue
-                )
-            }//Row - Title
 
-            // City + Flag + Temperature
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Start
-            ) {
-                // Flag
-                Image(
-                    painter = painterResource(id = R.drawable.spain_flag),
-                    contentDescription = "City Icon",
+        LazyColumn(modifier = Modifier.padding(16.dp)) {
+            items(cityWeather) { cityWeather ->
+                Row(
                     modifier = Modifier
-                        .width(50.dp)
-                        .height(50.dp)
-                )
-
-                //City Name + Temperature
-                Column(
-                    modifier = Modifier.padding(start = 10.dp)
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(
-                        text = cityName,
-                        color = Color.Blue
-                    )
-                    Text(
-                        text = "${temperature ?: 0.0} ºC",
-                        color = Color.DarkGray
-                    )
-                }//Column
-            }//Row
-        }//Column
+                    // City + Flag + Temperature
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Start
+                    ) {
+                        // Flag
+                        Image(
+                            painter = painterResource(id = R.drawable.spain_flag),
+                            contentDescription = "City Icon",
+                            modifier = Modifier
+                                .width(50.dp)
+                                .height(50.dp)
+                        )
+
+                        //City Name + Temperature
+                        Column(
+                            modifier = Modifier.padding(start = 10.dp)
+                        ) {
+                            Text(text = cityWeather.city, color = Color.Blue)
+                            Text(
+                                text = "${cityWeather.main.temperature.toInt()} ºC",
+                                color = Color.DarkGray
+                            )
+                        }
+                    }
+                }
+            }
+        }
+//        Column(
+//            modifier = Modifier
+//                .padding(10.dp),
+//            verticalArrangement = Arrangement.SpaceAround
+//        ) {
+//            //Title
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(10.dp),
+//                horizontalArrangement = Arrangement.Center
+//            ) {
+//                Text(
+//                    text = "$title",
+//                    color = Color.Blue
+//                )
+//            }//Row - Title
+//
+//            // City + Flag + Temperature
+//            Row(
+//                modifier = Modifier.fillMaxWidth(),
+//                horizontalArrangement = Arrangement.Start
+//            ) {
+//                // Flag
+//                Image(
+//                    painter = painterResource(id = R.drawable.spain_flag),
+//                    contentDescription = "City Icon",
+//                    modifier = Modifier
+//                        .width(50.dp)
+//                        .height(50.dp)
+//                )
+//
+//                //City Name + Temperature
+//                Column(
+//                    modifier = Modifier.padding(start = 10.dp)
+//                ) {
+//                    Text(
+//                        text = cityName,
+//                        color = Color.Blue
+//                    )
+//                    Text(
+//                        text = "${temperature.toInt() ?: 0.0} ºC",
+//                        color = Color.DarkGray
+//                    )
+//                }//Column
+//            }//Row
+      //  }//Column
     }//Surface
 }
