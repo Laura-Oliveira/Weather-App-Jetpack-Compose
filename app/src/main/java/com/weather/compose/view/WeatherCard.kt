@@ -6,6 +6,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -57,42 +59,59 @@ fun WeatherCard(
 
     Surface {
 
-        LazyColumn(modifier = Modifier.padding(16.dp)) {
-            items(cityWeather) { cityWeather ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    // City + Flag + Temperature
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.Start
-                    ) {
-                        // Flag
-                        Image(
-                            painter = painterResource(id = R.drawable.spain_flag),
-                            contentDescription = "City Icon",
-                            modifier = Modifier
-                                .width(50.dp)
-                                .height(50.dp)
-                        )
+        Column(modifier = Modifier.fillMaxSize()) {
+            //Title
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "$title",
+                    color = Color.Blue
+                )
 
-                        //City Name + Temperature
-                        Column(
-                            modifier = Modifier.padding(start = 10.dp)
+                Spacer(modifier = Modifier.width(30.dp)) // espaço de 16dp
+            }//Row - Title
+
+
+            LazyColumn(modifier = Modifier.padding(16.dp)) {
+                items(cityWeather) { cityWeather ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        // City + Flag + Temperature
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Start
                         ) {
-                            Text(text = cityWeather.city, color = Color.Blue)
-                            Text(
-                                text = "${cityWeather.main.temperature.toInt()} ºC",
-                                color = Color.DarkGray
+                            // Flag
+                            Image(
+                                painter = painterResource(id = R.drawable.spain_flag),
+                                contentDescription = "City Icon",
+                                modifier = Modifier
+                                    .width(50.dp)
+                                    .height(50.dp)
                             )
+
+                            //City Name + Temperature
+                            Column(
+                                modifier = Modifier.padding(start = 10.dp)
+                            ) {
+                                Text(text = cityWeather.city, color = Color.Blue)
+                                Text(
+                                    text = "${cityWeather.main.temperature.toInt()} ºC",
+                                    color = Color.DarkGray
+                                )
+                            }
                         }
                     }
                 }
             }
-        }
 //        Column(
 //            modifier = Modifier
 //                .padding(10.dp),
@@ -139,6 +158,7 @@ fun WeatherCard(
 //                    )
 //                }//Column
 //            }//Row
-      //  }//Column
+            //  }//Column
+        }
     }//Surface
 }
