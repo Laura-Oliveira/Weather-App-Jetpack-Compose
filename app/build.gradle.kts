@@ -75,4 +75,7 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.androidx.activity.ktx)
 
+    //Coil
+    implementation(libs.coil.compose)
+
 }

@@ -6,11 +6,6 @@ class WeatherRepository
 {
     private val api = RetrofitClient.api
 
-//    suspend fun fetchWeather(): WeatherResponse
-//    {
-//        return api.getWeather()
-//    }
-//
     suspend fun fetchWeather(city: String, apiKey:String): CityWeather
     {
         return api.getWeather(city, apiKey)
@@ -22,7 +17,8 @@ class WeatherRepository
                 val response = fetchWeather(city, apiKey)
                 CityWeather(
                     city = response.city,
-                    main = response.main
+                    main = Main(response.main.temperature),
+                    countryCode = CountryCode(response.countryCode.country)
                 )
             } catch (e: Exception) {
                 null // ignora erros de cidades que falharem

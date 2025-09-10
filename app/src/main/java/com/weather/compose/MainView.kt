@@ -18,7 +18,7 @@ fun WeatherAppTheme(content: @Composable () -> Unit) {
     )
 }
 
-class MainActivity : AppCompatActivity() {
+class MainView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
