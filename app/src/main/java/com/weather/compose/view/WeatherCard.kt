@@ -59,10 +59,8 @@ fun WeatherCard(weatherViewModel: WeatherViewModel = viewModel())
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-//                    .padding(top = 30.dp)
                     .padding(30.dp)
                     .clip(RoundedCornerShape(30.dp))
-                    //.border(width = 1.dp, Color.White, shape = RoundedCornerShape(50.dp))
                     .background(color = colorResource(R.color.square))
             ) {
                 //Title
