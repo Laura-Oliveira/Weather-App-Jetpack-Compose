@@ -6,6 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-On%20Going-F28B50?style=plastic)
 ![Android](https://img.shields.io/badge/Android-OS-green?style=plastic&logo=android)
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-purple?style=plastic&logo=kotlin)
+![Jetpack Compose](https://img.shields.io/badge/Jetpack_Compose-UI_Framework-4285F4?style=plastic&logo=android&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)
 
 </div>  
