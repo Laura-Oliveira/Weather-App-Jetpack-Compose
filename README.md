@@ -99,7 +99,7 @@ By combining **modern Kotlin**, **Compose**, and **scalable architecture**, this
 ## 👩🏻‍💻 **About the Developer**
 I’m **Laura Oliveira**, **Android Mobile Developer** with **4+ years** of experience **building scalable, user-focused apps** using **Kotlin, Compose, and Clean Architecture**.  
 
-- 🌍 Open to opportunities across **Europe**  
+- 🌍 Open to opportunities across **Europe (Open to relocation - Current based in Brazil)**  
 - 💡 Passionate about **clean code, design systems and user experience**  
 - ✨ Always learning and contributing to **modern Android projects**  
 
