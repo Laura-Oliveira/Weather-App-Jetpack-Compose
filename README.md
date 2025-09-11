@@ -86,7 +86,7 @@ By combining **modern Kotlin**, **Compose**, and **scalable architecture**, this
 
 ## 📱 **Screenshots**
 <p align="center">
-  <img src="./img/screen_1.jpg" width="250" height="500"/>
+  <img src="./img/screen_1.png" width="250" height="500"/>
   
 <!--  
 <img src="./img/screen_2.jpg" width="250" height="500"/>
