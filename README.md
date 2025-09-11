@@ -65,7 +65,7 @@ It fetches and displays **real-time weather data** using **OpenWeather API** whi
 ---
 
 ## 💻 **Tools Used**
-- **Android Studio Koala**  
+- **Android Studio Narwhal 3 Feature Drop | 2025.1.3**  
 - **Git & GitHub** – version control & CI/CD  
 - **Emulator / Physical Device** for testing  
 
